@@ -22,7 +22,6 @@ router.get('/:id', async(req, res) => {
 router.post('/', async(req, res) => {
   try {
     const newCampus = await Campus.create(req.body)
-    //res.json(newCampus)
     res.send('Campus added successfully!')
   } catch (error) {
     res.send(error.message)

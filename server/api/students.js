@@ -22,7 +22,6 @@ router.get('/:id', async(req, res) => {
 router.post('/', async(req, res) => {
   try {
     const newStudent = await Student.create(req.body)
-    //res.json(newStudent)
     res.send('Student added successfully!')
   } catch (error) {
     res.send(error.message)
