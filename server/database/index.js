@@ -5,7 +5,8 @@ const Student = require('./models/students')
 const Campus = require('./models/campuses')
 
 //Campus.hasMany(Student,{as: 'students' foreign-key: 'campus'})
-const createDummies = async () => {
+async function createDummies(){
+  try {
     if(!await Campus.findByPk("College1"))
 {
     Campus.create({
@@ -29,7 +30,12 @@ const createDummies = async () => {
     "description": "text goes here"
   })
 }
+  }
+catch (err){
+  console.log(err.message);
 }
+}
+
 
 createDummies()
 
