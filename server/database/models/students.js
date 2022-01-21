@@ -3,7 +3,7 @@ const myDatabase = require('../database')
 
 const Student = myDatabase.define('students', {
   studentId: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
         notEmpty: true
