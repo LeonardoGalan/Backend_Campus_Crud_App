@@ -91,5 +91,4 @@ const Student = myDatabase.define('students', {
 //      })
 
     
-module.exports =
-  Student
+module.exports = Student
