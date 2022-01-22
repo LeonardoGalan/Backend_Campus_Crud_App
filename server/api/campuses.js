@@ -27,7 +27,16 @@ router.post('/', async(req, res) => {
     res.send(error.message)
   }
 })
-
+router.put('/:id', async(req, res) => {
+  try {
+    const campusToBeUpdated = await Campus.findByPk(req.params.id)
+    await campusToBeUpdated.update(req.body)
+    if(campusToBeUpdated.name !== req.body.name)res.send("There's already a campus with that name! Updated everything else..")
+    else{res.send('Campus updated successfully!')}}
+    catch (error) {
+    res.send(error.message)
+  }
+})
 router.delete('/:id', async(req, res) => {
   try {
     const campusToBeDestroyed = await Campus.findByPk(req.params.id)

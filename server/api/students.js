@@ -27,7 +27,16 @@ router.post('/', async(req, res) => {
     res.send(error.message)
   }
 })
-
+router.put('/:id', async(req, res) => {
+  try {
+    const studentToBeUpdated = await Student.findByPk(req.params.id)
+    await studentToBeUpdated.update(req.body)
+    if(studentToBeUpdated.email !== req.body.email)res.send("There's already a student with that email! Updated everything else..")
+    else{res.send('Student updated successfully!')}} 
+    catch (error) {
+    res.send(error.message)
+  }
+}) 
 router.delete('/:id', async(req, res) => {
   try {
     const studentToBeDestroyed = await Student.findByPk(req.params.id)
