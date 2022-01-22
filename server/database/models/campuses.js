@@ -2,13 +2,18 @@ const Sequelize = require('sequelize')
 const myDatabase = require('../database')
 
 const Campus = myDatabase.define('campuses', {
+  campusId: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
   name: {
     type: Sequelize.STRING,
     allowNull: false,
+    unique: true,
     validate: {
         notEmpty: true
-    },
-    primaryKey: true
+    }
   },
   address: {
     type: Sequelize.TEXT,
@@ -27,7 +32,6 @@ const Campus = myDatabase.define('campuses', {
         isUrl: true
     }
   }
-
 })
 
 module.exports = Campus

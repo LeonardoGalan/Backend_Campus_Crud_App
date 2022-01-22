@@ -4,11 +4,8 @@ const myDatabase = require('../database')
 const Student = myDatabase.define('students', {
   studentId: {
     type: Sequelize.INTEGER,
-    allowNull: false,
-    validate: {
-        notEmpty: true
-    },
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true
   },
   firstName: {
     type: Sequelize.STRING,
@@ -27,6 +24,7 @@ const Student = myDatabase.define('students', {
   email: {
     type: Sequelize.TEXT,
     allowNull: false,
+    unique: true,
     validate: {
         notEmpty: true,
         isEmail: true

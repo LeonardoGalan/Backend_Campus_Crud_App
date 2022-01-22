@@ -10,15 +10,22 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:id', async(req, res) => {
+router.get('/:name', async(req, res) => {
   try {
-    const campus = await Campus.findByPk(req.params.id)
+    const campus = await Campus.findOne({where:{name:req.params.name}})
     res.send(campus)
   } catch (error) {
     res.send(error.message)
   }
 }) 
-
+router.get('/:name/students', async(req, res) => {
+  try {
+    const campus = await Campus.findOne({where:{name:req.params.name}})
+    res.send(await campus.getStudents())
+  } catch (error) {
+    res.send(error.message)
+  }
+}) 
 router.post('/', async(req, res) => {
   try {
     const newCampus = await Campus.create(req.body)
@@ -27,19 +34,19 @@ router.post('/', async(req, res) => {
     res.send(error.message)
   }
 })
-router.put('/:id', async(req, res) => {
+router.put('/:name', async(req, res) => {
   try {
-    const campusToBeUpdated = await Campus.findByPk(req.params.id)
-    await campusToBeUpdated.update(req.body)
-    if(campusToBeUpdated.name !== req.body.name)res.send("There's already a campus with that name! Updated everything else..")
-    else{res.send('Campus updated successfully!')}}
+    const campusToBeUpdated = await Campus.findOne({where:{name:req.params.name}})
+      await campusToBeUpdated.update(req.body)
+      res.send('Campus updated successfully!')
+    }
     catch (error) {
     res.send(error.message)
   }
 })
-router.delete('/:id', async(req, res) => {
+router.delete('/:name', async(req, res) => {
   try {
-    const campusToBeDestroyed = await Campus.findByPk(req.params.id)
+    const campusToBeDestroyed = await Campus.findOne({where:{name:req.params.name}})
     await campusToBeDestroyed.destroy()
     res.send('Campus removed successfully!')} 
     catch (error) {

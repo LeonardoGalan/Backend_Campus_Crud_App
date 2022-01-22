@@ -9,7 +9,14 @@ router.get('/', async (req, res) => {
     res.send(error.message)
   }
 })
-
+router.get('/notenrolled', async (req, res) => {
+  try {
+    const students = await Student.findAll({where:{campusName:null}})
+    res.send(students)
+  } catch (error) {
+    res.send(error.message)
+  }
+})
 router.get('/:id', async(req, res) => {
   try {
     const student = await Student.findByPk(req.params.id)
@@ -30,13 +37,13 @@ router.post('/', async(req, res) => {
 router.put('/:id', async(req, res) => {
   try {
     const studentToBeUpdated = await Student.findByPk(req.params.id)
-    await studentToBeUpdated.update(req.body)
-    if(studentToBeUpdated.email !== req.body.email)res.send("There's already a student with that email! Updated everything else..")
-    else{res.send('Student updated successfully!')}} 
+      await studentToBeUpdated.update(req.body)
+      res.send('Student updated successfully!')
+    }
     catch (error) {
     res.send(error.message)
   }
-}) 
+})
 router.delete('/:id', async(req, res) => {
   try {
     const studentToBeDestroyed = await Student.findByPk(req.params.id)
