@@ -31,6 +31,8 @@ const Campus = myDatabase.define('campuses', {
 
 })
 
+module.exports = Campus
+
 // Campus.hasMany(Student);
 
 // Campus.sync({alter: true}).then(() => {
@@ -67,4 +69,3 @@ const Campus = myDatabase.define('campuses', {
 //          console.log(err.message);
 //      })
 
-module.exports = Campus

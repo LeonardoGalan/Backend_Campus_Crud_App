@@ -10,6 +10,11 @@ const Campus = require('./models/campuses')
 Campus.hasMany(Student);
 Student.belongsTo(Campus);
 
+module.exports = {
+  myDatabase,
+  Student,
+  Campus,
+};
 
 
 
@@ -75,9 +80,3 @@ Student.belongsTo(Campus);
 
 //createDummies()
 
-
-module.exports = {
-    myDatabase,
-    Student,
-    Campus
-}
