@@ -1,9 +1,13 @@
 const Sequelize = require('sequelize')
 const myDatabase = require('../database')
+// const Campus = require('./campuses')
+
+
 
 const Student = myDatabase.define('students', {
   studentId: {
     type: Sequelize.INTEGER,
+    autoIncrement: true,
     allowNull: false,
     validate: {
         notEmpty: true
@@ -48,6 +52,44 @@ const Student = myDatabase.define('students', {
   }
 })
 
-module.exports = Student
+// Student.belongsTo(Campus);
 
+// Student.sync({alter: true}).then(() => {
+//   //tables created
+//    Student.bulkCreate([
+//      {
+//        studentId: 5,
+//            firstName: "john",
+//            lastName: "doe",
+//            email: "john@gmail.com",
+//            gpa: 3.2,
+//      },
+//      {
+//        studentId: 2,
+//            firstName: "john",
+//            lastName: "doe",
+//            email: "john@gmail.com",
+//            gpa: 3.2,
+//      },
+//      {
+//        studentId: 3,
+//            firstName: "john",
+//            lastName: "doe",
+//            email: "john@gmail.com",
+//            gpa: 3.2,
+//      },
+//      {
+//        studentId: 4,
+//            firstName: "john",
+//            lastName: "doe",
+//            email: "john@gmail.com",
+//            gpa: 3.2,
+//      },
+//    ])
+//   }).catch((err) => {
+//        console.log(err.message);
+//      })
 
+    
+module.exports =
+  Student

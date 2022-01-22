@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const myDatabase = require('../database')
+// const Student = require('./campuses')
 
 const Campus = myDatabase.define('campuses', {
   name: {
@@ -29,5 +30,41 @@ const Campus = myDatabase.define('campuses', {
   }
 
 })
+
+// Campus.hasMany(Student);
+
+// Campus.sync({alter: true}).then(() => {
+// Campus.bulkCreate([
+//       {
+//       name: "College1",
+//       address: "Someplace",
+//       description: "text goes here",
+  
+  
+//     },
+//     {
+//       name: "Brooklyn College", 
+//       address: "Someplace",
+//       description: "text goes here",
+  
+  
+//     },
+//     {
+//       name: "Hunter College",
+//       address: "Someplace",
+//       description: "text goes here",
+  
+  
+//     },
+//     {
+//       name: "NYU",
+//       address: "Someplace",
+//       description: "text goes here",
+  
+//     }
+// ])
+//   }).catch((err) => {
+//          console.log(err.message);
+//      })
 
 module.exports = Campus
