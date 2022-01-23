@@ -7,14 +7,15 @@ const Sequelize = require('sequelize')
 //and set the password field to whatever your password is
 const myDatabase = new Sequelize("postgres://postgres:123@localhost:5432/campusdb", {
 //   host: "xxxxxx.eu-west-1.compute.amazonaws.com",
-dialect: 'postgres',
+// dialect: 'postgres',
 // ssl: true,
-protocol: 'postgres',
+// protocol: 'postgres',
 logging: false,
-  dialectOptions: {
-      require: true,
-      rejectUnauthorized: false, // <<<<<< YOU NEED THIS
-    },
+//   dialectOptions: {
+//       require: true,
+//       rejectUnauthorized: false, // <<<<<< YOU NEED THIS
+   //  },
+ 
   },
 );
 
