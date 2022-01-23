@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize')
+// const { Pool } = require('pg');
 
 
 
@@ -8,9 +9,13 @@ const Sequelize = require('sequelize')
 const myDatabase = new Sequelize(
   process.env.DATABASE_URL || "postgres://postgres:123@localhost:5432/campusdb",
   {
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+
+  
     //   host: "xxxxxx.eu-west-1.compute.amazonaws.com",
     //  dialect: 'postgres',
-    ssl: "postgres://postgres:123@localhost:5432/campusdb" ? true : false,
+    // ssl: process.env.DATABASE_URL ? true : false,
     // ssl: true,
     // protocol: 'postgres',
     logging: false,
