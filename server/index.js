@@ -16,3 +16,4 @@ myDatabase.sync().then(() => {createDummyData()})
     console.log("Database synced!")
     app.listen(port, () => console.log(`Serving on port ${port}`))
 })
+
