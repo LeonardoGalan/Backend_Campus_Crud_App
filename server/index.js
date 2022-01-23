@@ -3,6 +3,8 @@ const app = express()
 const port = process.env.PORT || 8080
 const {myDatabase,createDummyData} = require("./database")
 const cors = require("cors")
+const dotenv = require("dotenv");
+dotenv.config();
 
 
 app.use(cors())
