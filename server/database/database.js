@@ -10,8 +10,7 @@ const myDatabase = new Sequelize("postgres://postgres:123@localhost:5432/campusd
 dialect: 'postgres',
 // ssl: true,
 protocol: 'postgres',
-
-//   logging: false,
+logging: false,
   dialectOptions: {
       rejectUnauthorized: false, // <<<<<< YOU NEED THIS
     },
