@@ -12,6 +12,7 @@ dialect: 'postgres',
 protocol: 'postgres',
 logging: false,
   dialectOptions: {
+      require: true,
       rejectUnauthorized: false, // <<<<<< YOU NEED THIS
     },
   },
