@@ -8,15 +8,17 @@ const Sequelize = require('sequelize')
 const myDatabase = new Sequelize(process.env.DATABASE_URL || "postgres://postgres:123@localhost:5432/campusdb", {
   
 //   host: "xxxxxx.eu-west-1.compute.amazonaws.com",
- dialect: 'postgres',
-ssl: true,
+//  dialect: 'postgres',
+ssl: process.env.DATABASE_URL ? true : false,
+// ssl: true,
 // protocol: 'postgres',
 logging: false,
- dialectOptions: {
-      require: true,
-       rejectUnauthorized: false, // <<<<<< YOU NEED THIS
-     },
- 
+//  dialectOptions: {
+//       ssl:{
+//         require: true,
+//        rejectUnauthorized: false, // <<<<<< YOU NEED THIS
+//      },
+//     },
   },
 );
 
