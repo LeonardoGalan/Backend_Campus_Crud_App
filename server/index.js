@@ -17,9 +17,12 @@ app.use('/', require('./api/index'))
 //   port = 8080;
 // }
 
-myDatabase.authenticate().then(() => {createDummyData()})
+myDatabase.authenticate().then(() => {
+  createDummyData()})
 .then(()=>{
-    console.log("Database synced!")
-    app.listen(port, () => console.log(`Serving on port ${port}`))
+    console.log("Database synced!")    
+}).catch(err => {
+  console.log(err)
 })
 
+app.listen(port, () => console.log(`Serving on port ${port}`));
