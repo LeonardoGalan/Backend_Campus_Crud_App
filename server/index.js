@@ -11,11 +11,11 @@ app.use(express.urlencoded({extended: true}))
 
 app.use('/', require('./api/index'))
 
-if (port == null || port == "") {
-  port = 8080;
-}
+// if (port == null || port == "") {
+//   port = 8080;
+// }
 
-myDatabase.sync().then(() => {createDummyData()})
+myDatabase.authenticate().then(() => {createDummyData()})
 .then(()=>{
     console.log("Database synced!")
     app.listen(port, () => console.log(`Serving on port ${port}`))
