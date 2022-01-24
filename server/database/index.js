@@ -28,6 +28,7 @@ async function createDummyData(){
     await Student.bulkCreate(
     [
       {
+        studentId :"gEsaPKtrI_VH-G3k80Ara",
         firstName:"John",
         lastName:"Doe",
         email:"john@gmail.com",
@@ -35,6 +36,7 @@ async function createDummyData(){
         gpa: 3.7
       },
       {
+        studentId :"OPoLE8tnywRJy3_ko1a85",
         firstName:"Jane",
         lastName:"Doe",
         email:"jane@gmail.com",
@@ -42,6 +44,7 @@ async function createDummyData(){
         gpa: 3.9
       },
       {
+        studentId :"Z22JiyT91TfOMPRPAF6pT",
         firstName:"First",
         lastName:"Lastman",
         email:"fl@gmail.com",
@@ -49,6 +52,7 @@ async function createDummyData(){
         gpa: 3.3
       },
       {
+        studentId :"0q7ovBn20gCvOzwsdKJps",
         firstName:"Last",
         lastName:"Firstman",
         email:"lf@gmail.com",
@@ -56,6 +60,7 @@ async function createDummyData(){
         gpa: 3.3
       },
       {
+        studentId :"nyEZgl2ge788DIph9BWms",
         firstName:"Iron",
         lastName:"Man",
         email:"stark@gmail.com",
@@ -63,6 +68,7 @@ async function createDummyData(){
         gpa: 4
       },
       {
+        studentId :"5rY_S3n3eKodmc5hVB9j5",
         firstName:"Human",
         lastName:"Person",
         email:"definitelyarealperson@gmail.com",
@@ -70,6 +76,7 @@ async function createDummyData(){
         gpa: 3.2
       },
       {
+        studentId :"aAO2eg7h7AO9w4thjVeEB",
         firstName:"Hank",
         lastName:"Hill",
         email:"hank@gmail.com",

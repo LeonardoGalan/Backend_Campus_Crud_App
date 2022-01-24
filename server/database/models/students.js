@@ -3,9 +3,12 @@ const myDatabase = require('../database')
 
 const Student = myDatabase.define('students', {
   studentId: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     primaryKey: true,
-    autoIncrement: true
+    allowNull: false,
+    validate: {
+        notEmpty: true
+    }
   },
   firstName: {
     type: Sequelize.STRING,
